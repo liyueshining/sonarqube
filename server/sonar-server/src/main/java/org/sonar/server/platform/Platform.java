@@ -19,7 +19,7 @@
  */
 package org.sonar.server.platform;
 
-import org.sonar.api.platform.ComponentContainer;
+import org.sonar.core.platform.ComponentContainer;
 import org.sonar.api.platform.Server;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.core.persistence.DatabaseVersion;
