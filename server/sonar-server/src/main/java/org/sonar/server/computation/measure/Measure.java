@@ -17,28 +17,50 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonar.server.computation.issue;
 
-import org.sonar.api.issue.internal.DefaultIssue;
-import org.sonar.api.utils.System2;
-import org.sonar.api.utils.TempFolder;
-import org.sonar.server.util.cache.DiskCache;
+package org.sonar.server.computation.measure;
 
-import java.io.File;
+public class Measure {
 
-/**
- * Cache of all the issues involved in the analysis. Their state is as it will be
- * persisted in database (after issue tracking, auto-assignment, ...)
- *
- */
-public class IssueCache extends DiskCache<DefaultIssue> {
+  private String metricKey;
+  private String componentUuid;
 
-  // this constructor is used by picocontainer
-  public IssueCache(TempFolder tempFolder, System2 system2) {
-    super(tempFolder.newFile("issues", ".dat"), system2);
+  private Double value;
+  private String textValue;
+
+  public String getComponentUuid() {
+    return componentUuid;
   }
 
-  public IssueCache(File file, System2 system2) {
-    super(file, system2);
+  public Measure setComponentUuid(String componentUuid) {
+    this.componentUuid = componentUuid;
+    return this;
+  }
+
+  public String getMetricKey() {
+    return metricKey;
+  }
+
+  public Measure setMetricKey(String metricKey) {
+    this.metricKey = metricKey;
+    return this;
+  }
+
+  public String getTextValue() {
+    return textValue;
+  }
+
+  public Measure setTextValue(String textValue) {
+    this.textValue = textValue;
+    return this;
+  }
+
+  public Double getValue() {
+    return value;
+  }
+
+  public Measure setValue(Double value) {
+    this.value = value;
+    return this;
   }
 }
