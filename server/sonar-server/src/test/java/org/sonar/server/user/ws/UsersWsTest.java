@@ -76,7 +76,7 @@ public class UsersWsTest {
     WebService.Action action = controller.action("update");
     assertThat(action).isNotNull();
     assertThat(action.isPost()).isTrue();
-    assertThat(action.params()).hasSize(6);
+    assertThat(action.params()).hasSize(4);
   }
 
   @Test
